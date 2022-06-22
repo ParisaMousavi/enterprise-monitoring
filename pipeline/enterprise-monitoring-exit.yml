@@ -1,0 +1,38 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+pool:
+  vmImage: ubuntu-latest
+
+stages:
+  - stage: 
+    displayName: 'Enterprise network'
+    jobs:
+      - job: 
+        continueOnError: false
+        steps:
+
+          - task: TerraformInstaller@0
+            displayName: 'Install TF'
+            continueOnError: false
+            inputs:
+              terraformVersion: '1.1.7'
+  
+          - task: TerraformTaskV2@2
+            inputs:
+              provider: 'azurerm'
+              command: 'init'
+              backendServiceArm: 'for-parisa-azure-devops-az-iac'
+              backendAzureRmResourceGroupName: 'tfstate'
+              backendAzureRmStorageAccountName: 'parisatfstateaziac'
+              backendAzureRmContainerName: 'enterprise-monitoring'
+              backendAzureRmKey: 'terraform.tfstate'
+    
+          - task: TerraformTaskV2@2
+            inputs:
+              provider: 'azurerm'
+              command: 'destroy'
+              environmentServiceNameAzureRM: 'for-parisa-azure-devops-az-iac'
+
