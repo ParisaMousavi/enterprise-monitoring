@@ -27,16 +27,12 @@ stages:
               backendServiceArm: 'for-parisa-azure-devops-az-iac'
               backendAzureRmResourceGroupName: 'tfstate'
               backendAzureRmStorageAccountName: 'parisatfstateaziac'
-              backendAzureRmContainerName: 'enterprise-network'
-              backendAzureRmKey: 'terraform.tfstate' 
+              backendAzureRmContainerName: 'enterprise-monitoring'
+              backendAzureRmKey: 'terraform.tfstate'
     
           - task: TerraformTaskV2@2
             inputs:
               provider: 'azurerm'
               command: 'apply'
-              environmentServiceNameAzureRM : 'for-parisa-azure-devops-az-iac'
-              backendAzureRmResourceGroupName: 'tfstate'
-              backendAzureRmStorageAccountName: 'parisatfstateaziac'
-              backendAzureRmContainerName: 'enterprise-network'
-              backendAzureRmKey: 'terraform.tfstate'
+              environmentServiceNameAzureRM: 'for-parisa-azure-devops-az-iac'
 
