@@ -3,17 +3,36 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
-trigger:
-- main
-
 pool:
   vmImage: ubuntu-latest
 
-steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+stages:
+  - stage: 
+    displayName: 'Enterprise network'
+    jobs:
+      - job: 
+        continueOnError: false
+        steps:
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+          - task: TerraformInstaller@0
+            displayName: 'Install TF'
+            continueOnError: false
+            inputs:
+              terraformVersion: '1.1.7'
+  
+          - task: TerraformTaskV2@2
+            inputs:
+              provider: 'azurerm'
+              command: 'init'
+              backendServiceArm: 'for-parisa-azure-devops-az-iac'
+              backendAzureRmResourceGroupName: 'tfstate'
+              backendAzureRmStorageAccountName: 'parisatfstateaziac'
+              backendAzureRmContainerName: 'enterprise-monitoring'
+              backendAzureRmKey: 'terraform.tfstate'
+    
+          - task: TerraformTaskV2@2
+            inputs:
+              provider: 'azurerm'
+              command: 'destroy'
+              environmentServiceNameAzureRM: 'for-parisa-azure-devops-az-iac'
+
