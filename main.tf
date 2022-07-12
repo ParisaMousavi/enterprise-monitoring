@@ -9,9 +9,9 @@ module "rg_name" {
 
 module "resourcegroup" {
   # https://{PAT}@dev.azure.com/{organization}/{project}/_git/{repo-name}
-  source             = "git::https://eh4amjsb2v7ke7yzqzkviryninjny3urbbq3pbkor25hhdbo5kea@dev.azure.com/p-moosavinezhad/az-iac/_git/az-resourcegroup?ref=main"
-  region             = var.location
-  resource_long_name = module.rg_name.result
+  source   = "git::https://eh4amjsb2v7ke7yzqzkviryninjny3urbbq3pbkor25hhdbo5kea@dev.azure.com/p-moosavinezhad/az-iac/_git/az-resourcegroup?ref=main"
+  location = var.location
+  name     = module.rg_name.result
   tags = {
     Service         = "Plat. Monitoring"
     AssetName       = "Asset Name"
