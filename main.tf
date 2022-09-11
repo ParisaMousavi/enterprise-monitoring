@@ -1,10 +1,10 @@
 
 module "rg_name" {
-  source   = "git::https://eh4amjsb2v7ke7yzqzkviryninjny3urbbq3pbkor25hhdbo5kea@dev.azure.com/p-moosavinezhad/az-iac/_git/az-naming//rg?ref=main"
-  prefix   = var.prefix
-  name     = var.resource_group_name
-  stage    = var.stage
-  location = var.location
+  source             = "git::https://eh4amjsb2v7ke7yzqzkviryninjny3urbbq3pbkor25hhdbo5kea@dev.azure.com/p-moosavinezhad/az-iac/_git/az-naming//rg?ref=main"
+  prefix             = var.prefix
+  name               = var.name
+  stage              = var.stage
+  location_shortname = var.location_shortname
 }
 
 module "resourcegroup" {
@@ -34,11 +34,11 @@ data "azurerm_subscription" "current" {}
 
 
 module "log_workspace_name" {
-  source   = "git::https://eh4amjsb2v7ke7yzqzkviryninjny3urbbq3pbkor25hhdbo5kea@dev.azure.com/p-moosavinezhad/az-iac/_git/az-naming//log-analytics-workspace?ref=main"
-  prefix   = var.prefix
-  name     = var.resource_group_name
-  stage    = var.stage
-  location = var.location
+  source             = "git::https://eh4amjsb2v7ke7yzqzkviryninjny3urbbq3pbkor25hhdbo5kea@dev.azure.com/p-moosavinezhad/az-iac/_git/az-naming//log-analytics-workspace?ref=main"
+  prefix             = var.prefix
+  name               = var.name
+  stage              = var.stage
+  location_shortname = var.location_shortname
 }
 
 // 1- create diasetting: https://docs.microsoft.com/en-us/azure/azure-monitor/logs/change-pricing-tier
@@ -297,8 +297,8 @@ resource "azurerm_monitor_aad_diagnostic_setting" "this" {
 //
 // https://msandbu.org/getting-started-with-azure-defender-and-azure-monitor-for-kubernetes-using-azure-arc/
 //------------------------------------------------------------------
-resource "azurerm_security_center_subscription_pricing" "this" {
-  for_each      = toset(var.defender_plans)
-  tier          = "Standard"
-  resource_type = each.value
-}
+# resource "azurerm_security_center_subscription_pricing" "this" {
+#   for_each      = toset(var.defender_plans)
+#   tier          = "Standard"
+#   resource_type = each.value
+# }

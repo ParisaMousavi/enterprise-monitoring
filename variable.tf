@@ -29,7 +29,7 @@ variable "location" {
 
 variable "prefix" {
   type    = string
-  default = "labor"
+  default = "projn"
 }
 
 variable "stage" {
@@ -37,7 +37,12 @@ variable "stage" {
   default = "dev"
 }
 
-variable "resource_group_name" {
-  type = string
+variable "name" {
+  type    = string
   default = "monitoring"
+}
+
+variable "location_shortname" {
+  type    = string
+  default = "gwc"
 }
