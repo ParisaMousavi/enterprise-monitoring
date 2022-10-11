@@ -1,6 +1,6 @@
 
 module "rg_name" {
-  source             = "git::https://eh4amjsb2v7ke7yzqzkviryninjny3urbbq3pbkor25hhdbo5kea@dev.azure.com/p-moosavinezhad/az-iac/_git/az-naming//rg?ref=main"
+  source             = "github.com/ParisaMousavi/az-naming//rg?ref=2022.10.07"
   prefix             = var.prefix
   name               = var.name
   stage              = var.stage
@@ -9,7 +9,7 @@ module "rg_name" {
 
 module "resourcegroup" {
   # https://{PAT}@dev.azure.com/{organization}/{project}/_git/{repo-name}
-  source   = "git::https://eh4amjsb2v7ke7yzqzkviryninjny3urbbq3pbkor25hhdbo5kea@dev.azure.com/p-moosavinezhad/az-iac/_git/az-resourcegroup?ref=main"
+  source   = "github.com/ParisaMousavi/az-resourcegroup?ref=2022.10.07"
   location = var.location
   name     = module.rg_name.result
   tags = {
@@ -34,7 +34,7 @@ data "azurerm_subscription" "current" {}
 
 
 module "log_workspace_name" {
-  source             = "git::https://eh4amjsb2v7ke7yzqzkviryninjny3urbbq3pbkor25hhdbo5kea@dev.azure.com/p-moosavinezhad/az-iac/_git/az-naming//log-analytics-workspace?ref=main"
+  source             = "github.com/ParisaMousavi/az-naming//log-analytics-workspace?ref=main"
   prefix             = var.prefix
   name               = var.name
   stage              = var.stage
@@ -45,8 +45,8 @@ module "log_workspace_name" {
 // 2- Analyze Azure AD activity logs with Azure Monitor logs : https://docs.microsoft.com/en-us/azure/active-directory/reports-monitoring/howto-analyze-activity-logs-log-analytics
 // 3- Install and use the log analytics views for Azure Active Directory : https://docs.microsoft.com/en-us/azure/active-directory/reports-monitoring/howto-install-use-log-analytics-views
 module "loganalytics" {
-  source = "git::https://eh4amjsb2v7ke7yzqzkviryninjny3urbbq3pbkor25hhdbo5kea@dev.azure.com/p-moosavinezhad/az-iac/_git/az-log-analytics-workspace?ref=main"
   # https://{PAT}@dev.azure.com/{organization}/{project}/_git/{repo-name}
+  source              = "github.com/ParisaMousavi/az-log-analytics-workspace?ref=main"
   sku                 = "PerGB2018"
   retention_in_days   = 30
   name                = module.log_workspace_name.result
