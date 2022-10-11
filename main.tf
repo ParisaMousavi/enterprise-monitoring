@@ -148,106 +148,106 @@ resource "azurerm_monitor_diagnostic_setting" "subscription" {
 
 
 // https://docs.microsoft.com/en-us/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics
-resource "azurerm_monitor_aad_diagnostic_setting" "this" {
-  name                       = "aad-diaset"
-  log_analytics_workspace_id = module.loganalytics.id
-  log {
-    category = "SignInLogs"
-    enabled  = true
-    retention_policy {
-      enabled = true
-      days    = 10
-    }
-  }
-  log {
-    category = "AuditLogs"
-    enabled  = true
-    retention_policy {
-      enabled = true
-      days    = 10
-    }
-  }
-  log {
-    category = "NonInteractiveUserSignInLogs"
-    enabled  = true
-    retention_policy {
-      enabled = true
-      days    = 10
-    }
-  }
-  log {
-    category = "ServicePrincipalSignInLogs"
-    enabled  = true
-    retention_policy {
-      enabled = true
-      days    = 10
-    }
-  }
-  log {
-    category = "ManagedIdentitySignInLogs"
-    enabled  = true
-    retention_policy {
-      enabled = true
-      days    = 10
-    }
-  }
-  log {
-    category = "ProvisioningLogs"
-    enabled  = true
-    retention_policy {
-      enabled = true
-      days    = 10
-    }
-  }
-  log {
-    category = "ADFSSignInLogs"
-    enabled  = true
-    retention_policy {
-      enabled = true
-      days    = 10
-    }
-  }
-  log {
-    category = "RiskyUsers"
-    enabled  = true
-    retention_policy {
-      enabled = true
-      days    = 10
-    }
-  }
-  log {
-    category = "RiskyServicePrincipals"
-    enabled  = true
-    retention_policy {
-      enabled = true
-      days    = 10
-    }
-  }
-  log {
-    category = "UserRiskEvents"
-    enabled  = true
-    retention_policy {
-      enabled = true
-      days    = 10
-    }
-  }
-  log {
-    category = "ServicePrincipalRiskEvents"
-    enabled  = true
-    retention_policy {
-      enabled = true
-      days    = 10
-    }
-  }
-  log {
-    category = "NetworkAccessTrafficLogs"
-    enabled  = true
-    retention_policy {
-      enabled = true
-      days    = 10
-    }
-  }
-}
+# resource "azurerm_monitor_aad_diagnostic_setting" "this" {
+#   name                       = "aad-diaset"
+#   log_analytics_workspace_id = module.loganalytics.id
+#   log {
+#     category = "SignInLogs"
+#     enabled  = true
+#     retention_policy {
+#       enabled = true
+#       days    = 10
+#     }
+#   }
+#   log {
+#     category = "AuditLogs"
+#     enabled  = true
+#     retention_policy {
+#       enabled = true
+#       days    = 10
+#     }
+#   }
+#   log {
+#     category = "NonInteractiveUserSignInLogs"
+#     enabled  = true
+#     retention_policy {
+#       enabled = true
+#       days    = 10
+#     }
+#   }
+#   log {
+#     category = "ServicePrincipalSignInLogs"
+#     enabled  = true
+#     retention_policy {
+#       enabled = true
+#       days    = 10
+#     }
+#   }
+#   log {
+#     category = "ManagedIdentitySignInLogs"
+#     enabled  = true
+#     retention_policy {
+#       enabled = true
+#       days    = 10
+#     }
+#   }
+#   log {
+#     category = "ProvisioningLogs"
+#     enabled  = true
+#     retention_policy {
+#       enabled = true
+#       days    = 10
+#     }
+#   }
+#   log {
+#     category = "ADFSSignInLogs"
+#     enabled  = true
+#     retention_policy {
+#       enabled = true
+#       days    = 10
+#     }
+#   }
+#   log {
+#     category = "RiskyUsers"
+#     enabled  = true
+#     retention_policy {
+#       enabled = true
+#       days    = 10
+#     }
+#   }
+#   log {
+#     category = "RiskyServicePrincipals"
+#     enabled  = true
+#     retention_policy {
+#       enabled = true
+#       days    = 10
+#     }
+#   }
+#   log {
+#     category = "UserRiskEvents"
+#     enabled  = true
+#     retention_policy {
+#       enabled = true
+#       days    = 10
+#     }
+#   }
+#   log {
+#     category = "ServicePrincipalRiskEvents"
+#     enabled  = true
+#     retention_policy {
+#       enabled = true
+#       days    = 10
+#     }
+#   }
+#   log {
+#     category = "NetworkAccessTrafficLogs"
+#     enabled  = true
+#     retention_policy {
+#       enabled = true
+#       days    = 10
+#     }
+#   }
+# }
 
 
 #----------------------------------------------------------

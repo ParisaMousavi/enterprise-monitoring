@@ -24,7 +24,7 @@ variable "defender_plans" {
 //------------------------------------------------
 variable "location" {
   type    = string
-  default = "germanywestcentral"
+  default = "westeurope"
 }
 
 variable "prefix" {
@@ -44,5 +44,5 @@ variable "name" {
 
 variable "location_shortname" {
   type    = string
-  default = "gwc"
+  default = "weu"
 }
