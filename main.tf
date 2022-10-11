@@ -13,16 +13,8 @@ module "resourcegroup" {
   location = var.location
   name     = module.rg_name.result
   tags = {
-    Service         = "Plat. Monitoring"
-    AssetName       = "Asset Name"
-    AssetID         = "AB00CD"
-    BusinessUnit    = "Plat. Monitoring Team"
-    Confidentiality = "C1"
-    Integrity       = "I1"
-    Availability    = "A1"
-    Criticality     = "Low"
-    Owner           = "parisamoosavinezhad@hotmail.com"
-    CostCenter      = ""
+    CostCenter = "ABC000CBA"
+    By         = "parisamoosavinezhad@hotmail.com"
   }
 }
 
@@ -53,16 +45,8 @@ module "loganalytics" {
   resource_group_name = module.resourcegroup.name
   location            = module.resourcegroup.location
   tags = {
-    Service         = "Plat. Monitoring"
-    AssetName       = "Asset Name"
-    AssetID         = "AB00CD"
-    BusinessUnit    = "Plat. Monitoring Team"
-    Confidentiality = "C1"
-    Integrity       = "I1"
-    Availability    = "A1"
-    Criticality     = "Low"
-    Owner           = "parisamoosavinezhad@hotmail.com"
-    CostCenter      = ""
+    CostCenter = "ABC000CBA"
+    By         = "parisamoosavinezhad@hotmail.com"
   }
 }
 
