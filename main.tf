@@ -50,6 +50,23 @@ module "loganalytics" {
   }
 }
 
+
+resource "azurerm_log_analytics_solution" "example" {
+  solution_name         = "ContainerInsights"
+  location              = var.location
+  resource_group_name   = module.resourcegroup.name
+  workspace_resource_id = module.loganalytics.id
+  workspace_name        = module.loganalytics.name
+
+  plan {
+    publisher = "Microsoft"
+    product   = "OMSGallery/ContainerInsights"
+  }
+}
+
+
+
+
 resource "azurerm_monitor_diagnostic_setting" "subscription" {
   name                       = "example"
   target_resource_id         = data.azurerm_subscription.current.id
