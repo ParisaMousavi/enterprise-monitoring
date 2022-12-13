@@ -51,21 +51,31 @@ module "loganalytics" {
 }
 
 
-resource "azurerm_log_analytics_solution" "this" {
-  solution_name         = "ContainerInsights"
-  location              = var.location
-  resource_group_name   = module.resourcegroup.name
-  workspace_resource_id = module.loganalytics.id
-  workspace_name        = module.loganalytics.name
-  plan {
-    publisher = "Microsoft"
-    product   = "OMSGallery/ContainerInsights"
-  }
-  tags = {
-    CostCenter = "ABC000CBA"
-    By         = "parisamoosavinezhad@hotmail.com"
-  }
-}
+# resource "azurerm_log_analytics_solution" "this" {
+#   solution_name         = "ContainerInsights"
+#   location              = var.location
+#   resource_group_name   = module.resourcegroup.name
+#   workspace_resource_id = module.loganalytics.id
+#   workspace_name        = module.loganalytics.name
+#   plan {
+#     publisher = "Microsoft"
+#     product   = "OMSGallery/ContainerInsights"
+#   }
+#   tags = {
+#     CostCenter = "ABC000CBA"
+#     By         = "parisamoosavinezhad@hotmail.com"
+#   }
+# }
+
+# resource "azurerm_log_analytics_saved_search" "example" {
+#   name                       = "exampleSavedSearch"
+#   log_analytics_workspace_id = module.loganalytics.id
+
+#   category     = "exampleCategory"
+#   display_name = "exampleDisplayName"
+#   query        = "Usage | where TimeGenerated > startofday(ago(31d))| where IsBillable == true | where TimeGenerated > startofday(ago(31d)) | where IsBillable == true | summarize BillableDataGB = sum(Quantity) / 1000. by bin(TimeGenerated, 1d), DataType | render barchart"
+# }
+
 
 resource "azurerm_monitor_diagnostic_setting" "subscription" {
   name                       = "example"
