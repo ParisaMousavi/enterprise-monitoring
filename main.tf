@@ -77,84 +77,84 @@ module "loganalytics" {
 # }
 
 
-resource "azurerm_monitor_diagnostic_setting" "subscription" {
-  name                       = "example"
-  target_resource_id         = data.azurerm_subscription.current.id
-  log_analytics_workspace_id = module.loganalytics.id
+# resource "azurerm_monitor_diagnostic_setting" "subscription" {
+#   name                       = "example"
+#   target_resource_id         = data.azurerm_subscription.current.id
+#   log_analytics_workspace_id = module.loganalytics.id
 
-  log {
-    category = "Administrative"
-    enabled  = true
+#   log {
+#     category = "Administrative"
+#     enabled  = true
 
-    retention_policy {
-      days    = 10
-      enabled = true
-    }
-  }
-  log {
-    category = "Security"
-    enabled  = true
+#     retention_policy {
+#       days    = 10
+#       enabled = true
+#     }
+#   }
+#   log {
+#     category = "Security"
+#     enabled  = true
 
-    retention_policy {
-      days    = 10
-      enabled = true
-    }
-  }
-  log {
-    category = "ServiceHealth"
-    enabled  = true
+#     retention_policy {
+#       days    = 10
+#       enabled = true
+#     }
+#   }
+#   log {
+#     category = "ServiceHealth"
+#     enabled  = true
 
-    retention_policy {
-      days    = 10
-      enabled = true
-    }
-  }
-  log {
-    category = "Alert"
-    enabled  = true
+#     retention_policy {
+#       days    = 10
+#       enabled = true
+#     }
+#   }
+#   log {
+#     category = "Alert"
+#     enabled  = true
 
-    retention_policy {
-      days    = 10
-      enabled = true
-    }
-  }
-  log {
-    category = "Recommendation"
-    enabled  = true
+#     retention_policy {
+#       days    = 10
+#       enabled = true
+#     }
+#   }
+#   log {
+#     category = "Recommendation"
+#     enabled  = true
 
-    retention_policy {
-      days    = 10
-      enabled = true
-    }
-  }
-  log {
-    category = "Policy"
-    enabled  = true
+#     retention_policy {
+#       days    = 10
+#       enabled = true
+#     }
+#   }
+#   log {
+#     category = "Policy"
+#     enabled  = true
 
-    retention_policy {
-      days    = 10
-      enabled = true
-    }
-  }
-  log {
-    category = "Autoscale"
-    enabled  = true
+#     retention_policy {
+#       days    = 10
+#       enabled = true
+#     }
+#   }
+#   log {
+#     category = "Autoscale"
+#     enabled  = true
 
-    retention_policy {
-      days    = 10
-      enabled = true
-    }
-  }
-  log {
-    category = "ResourceHealth"
-    enabled  = true
+#     retention_policy {
+#       days    = 10
+#       enabled = true
+#     }
+#   }
+#   log {
+#     category = "ResourceHealth"
+#     enabled  = true
 
-    retention_policy {
-      days    = 10
-      enabled = true
-    }
-  }
-}
+#     retention_policy {
+#       days    = 10
+#       enabled = true
+#     }
+#   }
+# }
 
 
 
