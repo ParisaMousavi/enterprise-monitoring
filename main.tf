@@ -39,12 +39,18 @@ module "log_workspace_name" {
 // 3- Install and use the log analytics views for Azure Active Directory : https://docs.microsoft.com/en-us/azure/active-directory/reports-monitoring/howto-install-use-log-analytics-views
 module "loganalytics" {
   # https://{PAT}@dev.azure.com/{organization}/{project}/_git/{repo-name}
-  source              = "github.com/ParisaMousavi/az-log-analytics-workspace?ref=main"
-  sku                 = "PerGB2018"
-  retention_in_days   = 30
-  name                = module.log_workspace_name.result
-  resource_group_name = module.resourcegroup.name
-  location            = module.resourcegroup.location
+  source                          = "github.com/ParisaMousavi/az-log-analytics-workspace?ref=main"
+  sku                             = "PerGB2018"
+  retention_in_days               = 30
+  name                            = module.log_workspace_name.result
+  resource_group_name             = module.resourcegroup.name
+  location                        = module.resourcegroup.location
+  internet_ingestion_enabled      = true
+  internet_query_enabled          = true
+  cmk_for_query_forced            = false
+  local_authentication_disabled   = true
+  allow_resource_only_permissions = true
+  daily_quota_gb = 0.25
   tags = {
     CostCenter = "ABC000CBA"
     By         = "parisamoosavinezhad@hotmail.com"
