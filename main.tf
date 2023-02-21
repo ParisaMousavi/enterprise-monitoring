@@ -50,7 +50,7 @@ module "loganalytics" {
   cmk_for_query_forced            = false
   local_authentication_disabled   = true
   allow_resource_only_permissions = true
-  daily_quota_gb = 0.25
+  daily_quota_gb                  = 0.25
   tags = {
     CostCenter = "ABC000CBA"
     By         = "parisamoosavinezhad@hotmail.com"
