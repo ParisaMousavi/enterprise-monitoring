@@ -29,7 +29,7 @@ variable "location" {
 
 variable "prefix" {
   type    = string
-  default = "projn"
+  default = "teama"
 }
 
 variable "stage" {
@@ -39,7 +39,7 @@ variable "stage" {
 
 variable "name" {
   type    = string
-  default = "monitoring"
+  default = "monit"
 }
 
 variable "location_shortname" {

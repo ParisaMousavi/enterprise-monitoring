@@ -4,3 +4,6 @@ git remote set-url --add --push origin https://github.com/ParisaMousavi/enterpri
 
 git remote set-url --add --push origin https://p-moosavinezhad@dev.azure.com/p-moosavinezhad/az-iac/_git/enterprise-monitoring
 ```
+
+# Scenario
+In an enterprise 
